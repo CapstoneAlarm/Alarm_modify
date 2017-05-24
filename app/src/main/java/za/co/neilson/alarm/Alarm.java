@@ -289,7 +289,9 @@ public class Alarm implements Serializable {
 
 		AlarmManager alarmManager = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
 
-		alarmManager.set(AlarmManager.RTC_WAKEUP, getAlarmTime().getTimeInMillis(), pendingIntent);
+		//sj
+		//알람시간 정확하게 울리게하는 함수 (API23이상에서 사용가능)
+		alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, getAlarmTime().getTimeInMillis(), pendingIntent);
 	}
 
 	///시간 계산 스트링 변환함수
